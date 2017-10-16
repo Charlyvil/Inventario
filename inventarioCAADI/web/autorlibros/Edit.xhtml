@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAutorlibrosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAutorlibrosLabel_idAutorlibros}" for="idAutorlibros" />
+                    <h:inputText id="idAutorlibros" value="#{autorlibrosController.selected.idAutorlibros}" title="#{bundle.EditAutorlibrosTitle_idAutorlibros}" required="true" requiredMessage="#{bundle.EditAutorlibrosRequiredMessage_idAutorlibros}"/>
+                    <h:outputLabel value="#{bundle.EditAutorlibrosLabel_nombreAutorlibros}" for="nombreAutorlibros" />
+                    <h:inputText id="nombreAutorlibros" value="#{autorlibrosController.selected.nombreAutorlibros}" title="#{bundle.EditAutorlibrosTitle_nombreAutorlibros}" required="true" requiredMessage="#{bundle.EditAutorlibrosRequiredMessage_nombreAutorlibros}"/>
+                    <h:outputLabel value="#{bundle.EditAutorlibrosLabel_apellidoAutorlibros}" for="apellidoAutorlibros" />
+                    <h:inputText id="apellidoAutorlibros" value="#{autorlibrosController.selected.apellidoAutorlibros}" title="#{bundle.EditAutorlibrosTitle_apellidoAutorlibros}" required="true" requiredMessage="#{bundle.EditAutorlibrosRequiredMessage_apellidoAutorlibros}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{autorlibrosController.update}" value="#{bundle.EditAutorlibrosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAutorlibrosViewLink}"/>
+                <br />
+                <h:commandLink action="#{autorlibrosController.prepareList}" value="#{bundle.EditAutorlibrosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAutorlibrosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

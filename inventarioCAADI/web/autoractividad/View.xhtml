@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAutoractividadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAutoractividadLabel_idAutor}"/>
+                    <h:outputText value="#{autoractividadController.selected.idAutor}" title="#{bundle.ViewAutoractividadTitle_idAutor}"/>
+                    <h:outputText value="#{bundle.ViewAutoractividadLabel_nua}"/>
+                    <h:outputText value="#{autoractividadController.selected.nua}" title="#{bundle.ViewAutoractividadTitle_nua}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{autoractividadController.destroyAndView}" value="#{bundle.ViewAutoractividadDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAutoractividadEditLink}"/>
+                <br />
+                <h:commandLink action="#{autoractividadController.prepareCreate}" value="#{bundle.ViewAutoractividadCreateLink}" />
+                <br />
+                <h:commandLink action="#{autoractividadController.prepareList}" value="#{bundle.ViewAutoractividadShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAutoractividadIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

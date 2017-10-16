@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAutoractividadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAutoractividadLabel_idAutor}" for="idAutor" />
+                    <h:inputText id="idAutor" value="#{autoractividadController.selected.idAutor}" title="#{bundle.CreateAutoractividadTitle_idAutor}" required="true" requiredMessage="#{bundle.CreateAutoractividadRequiredMessage_idAutor}"/>
+                    <h:outputLabel value="#{bundle.CreateAutoractividadLabel_nua}" for="nua" />
+                    <h:inputText id="nua" value="#{autoractividadController.selected.nua}" title="#{bundle.CreateAutoractividadTitle_nua}" required="true" requiredMessage="#{bundle.CreateAutoractividadRequiredMessage_nua}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{autoractividadController.create}" value="#{bundle.CreateAutoractividadSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{autoractividadController.prepareList}" value="#{bundle.CreateAutoractividadShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAutoractividadIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
